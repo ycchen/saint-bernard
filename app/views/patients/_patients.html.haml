@@ -1,0 +1,15 @@
+%table.table.table-striped.table-bordered
+  %thead
+    %th Name
+    %th Date of Birth
+    %th Gender
+    %TH Facility
+    %th &nbsp;
+  %tbody
+    - patients.each do |patient|
+      %tr
+        %td= patient.name
+        %td.col-md-3.col-sm-3= patient.date_of_birth
+        %td.col-md-2= patient.gender
+        %td.col-md-3= patient.facility.name
+        %td.col-md-1.centered= link_to 'Transfer', transfer_patient_path(patient), class: 'btn btn-sm btn-primary'

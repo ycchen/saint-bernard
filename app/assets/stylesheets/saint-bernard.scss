@@ -1,0 +1,38 @@
+
+.outer {
+  margin-top: 50px;
+}
+
+table.table tbody {
+  td {
+    vertical-align: middle;
+  }
+
+  td.centered {
+    text-align: center;
+  }
+}
+
+.facilities-select {
+  margin: 20px 4px 12px 0;
+}
+
+.print {
+  margin-top: 20px;
+
+  table thead th {
+    background: #ddd;
+  }
+
+  td.name {
+    width: 15%;
+  }
+}
+
+.title {
+  font-weight: bold;
+}
+
+.print-link {
+  margin-right: 2px;
+}

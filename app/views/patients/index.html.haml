@@ -1,0 +1,19 @@
+
+.btn-group.pull-right.facilities-select
+  %button.btn.btn-info.dropdown-toggle{ 'aria-expanded' => 'false', 'aria-haspopup' => 'true', 'data-toggle' => 'dropdown', type: 'button'}
+    All Facilities
+    %span.caret
+  %ul.dropdown-menu#facilities
+    %li
+      %a{ href: patients_path }
+        All Facilities
+    %li.divider{ role: 'separator' }
+    - @facilities.each do |facility|
+      %li
+        %a{ href: patients_path(facility_id: facility.id), 'id': facility.id }
+          = facility.name
+
+%h3 Patients
+
+%div#patients
+  &nbsp;

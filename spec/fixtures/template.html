@@ -1,0 +1,71 @@
+<table class='table table-bordered'>
+  <thead>
+  <tr>
+    <th colspan='5'>Emergency Transfer Summary (Form 34L-D)</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td class='title' colspan='5'>
+      Transferring Facility
+    </td>
+  </tr>
+  <tr>
+    <td class='name'>
+      Name
+      <br>
+      <br>
+      {{facility.name}}
+    </td>
+    <td colspan='4'>
+      &nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td class='title' colspan='5'>
+      Patient Information
+    </td>
+  </tr>
+  <tr>
+    <td class='name'>
+      First Name
+      <br>
+      <br>
+      {{patient.first_name}}
+    </td>
+    <td class='name'>
+      Middle Name
+      <br>
+      <br>
+      {{patient.middle_name}}
+    </td>
+    <td class='name'>
+      Last Name
+      <br>
+      <br>
+      {{patient.last_name}}
+    </td>
+    <td class='name'>
+      Medical Record (MR)
+      <br>
+      <br>
+      {{patient.mr}}
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class='name' colspan='5'>
+      <span class='title'>Summary</span>
+      <br>
+      <br>
+      This {{patient.age}} years old {{patient.gender}} was admitted to {{facility.name}} on {{patient.admission.date}} at {{patient.admission.time}} due to {{patient.admission.diagnoses > described_code | to_sentence}}. The observed symptoms on admission were {{patient.admission.symptoms > description | to_sentence}}. {{patient.admission.observations > description | to_sentence}}.
+      <br>
+      <br>
+      Upon asking about known allergies, the patient disclosed {{patient.allergies > description | to_sentence}}. Upon asking about chronic conditions, the patient disclosed {{patient.chronic_conditions > described_code | to_sentence}}. The patient was administered with {{patient.medications > name, dosage, route, frequency, "to", necessity | space_join | to_sentence}}.
+      <br>
+      <br>
+      The staff performed {{patient.diagnostic_procedures > description, "on", moment.date, "at", moment.time | space_join | to_sentence}}, revealing {{patient.diagnoses > described_code | to_sentence}}. Our team proceeded to {{patient.treatments > description, "to", necessity | space_join | to_sentence}}.
+    </td>
+  </tr>
+  </tbody>
+</table>
